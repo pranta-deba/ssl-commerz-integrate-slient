@@ -3,6 +3,7 @@ import Root from "../layouts/Root";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import Cart from "../pages/Cart";
 
 export const routes = createBrowserRouter([
   {
@@ -12,6 +13,10 @@ export const routes = createBrowserRouter([
       {
         path: "",
         element: <Home />,
+      },
+      {
+        path: "cart",
+        element: <Cart />,
       },
     ],
   },
