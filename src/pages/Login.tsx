@@ -1,9 +1,13 @@
-import { FormEvent } from "react";
+import { FormEvent, useState } from "react";
 import { FaGoogle } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import Loader from "../components/ui/Loader";
 
 const Login = () => {
+  const [loading, setLoading] = useState(false);
+
   const handleLogin = (e: FormEvent<HTMLFormElement>) => {
+    setLoading(true);
     e.preventDefault();
 
     const form = e.currentTarget;
@@ -12,7 +16,13 @@ const Login = () => {
 
     console.log("Email:", email);
     console.log("Password:", password);
+    setLoading(false);
   };
+
+  const handleGoogleLogin = () => {
+    console.log("Google Login");
+  };
+
   return (
     <div className="min-h-screen flex justify-center items-center">
       <div className="w-full max-w-md p-4 rounded-md sm:p-8 bg-black text-white shadow-2xs">
@@ -31,12 +41,15 @@ const Login = () => {
         </p>
         <div className="my-6 space-y-4">
           <button
+            onClick={handleGoogleLogin}
             aria-label="Login with Google"
             type="button"
-            className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 dark:border-gray-600 focus:dark:ring-indigo-600"
+            disabled={loading}
+            className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 cursor-pointer"
           >
             <FaGoogle />
-            <p>Login with Google</p>
+
+            {!loading ? <p>Login with Google</p> : <Loader trigger={loading} />}
           </button>
         </div>
         <div className="flex items-center w-full my-4">
@@ -77,9 +90,10 @@ const Login = () => {
           </div>
           <button
             type="submit"
-            className="w-full px-8 py-3 font-semibold rounded-md bg-white text-black cursor-pointer"
+            disabled={loading}
+            className="w-full px-8 py-3 font-semibold rounded-md bg-white text-black cursor-pointer flex justify-center items-center"
           >
-            Sign in
+            {!loading ? " Sign in" : <Loader trigger={loading} />}
           </button>
         </form>
       </div>

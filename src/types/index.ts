@@ -10,3 +10,9 @@ export interface IAuthContextType {
   user: IUser | null;
   setUser: React.Dispatch<React.SetStateAction<IUser | null>>;
 }
+
+// Loader
+export interface ILoader {
+  className?: string;
+  trigger?: boolean;
+}
