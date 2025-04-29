@@ -13,11 +13,22 @@ const Login = () => {
     e.preventDefault();
 
     const form = e.currentTarget;
-    const email = form.email.value;
-    const password = form.password.value;
+    const email = form.email.value.trim();
+    const password = form.password.value.trim();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!email || !password) {
-      toast.error("Input Field Required!");
+      toast.error("All fields are required!");
+      setLoading(false);
+      return;
+    }
+    if (!emailRegex.test(email)) {
+      toast.error("Invalid email format!");
+      setLoading(false);
+      return;
+    }
+    if (password.length < 6) {
+      toast.error("Password must be at least 6 characters!");
       setLoading(false);
       return;
     }
