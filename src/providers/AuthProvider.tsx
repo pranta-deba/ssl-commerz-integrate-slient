@@ -1,10 +1,9 @@
-/* eslint-disable react-refresh/only-export-components */
-import { createContext, ReactNode, useState } from "react";
-
-export const AuthContext = createContext({});
+import { ReactNode, useState } from "react";
+import { IUser } from "../types";
+import { AuthContext } from "../contexts/authContext";
 
 const AuthProvider = ({ children }: { children: ReactNode }) => {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState<IUser | null>(null);
 
   const value = { user, setUser };
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
