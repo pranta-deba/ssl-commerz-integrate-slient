@@ -4,7 +4,7 @@ import { Link, NavLink } from "react-router-dom";
 const Navbar = () => {
   const cartItems = [];
   return (
-    <div className="navbar bg-base-100 shadow-sm">
+    <div className="navbar bg-black text-white shadow-sm">
       <div className="flex-1">
         <Link to={"/"} className="text-xl font-bold">
           PayKor
