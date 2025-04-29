@@ -1,9 +1,12 @@
-import { createContext, ReactNode } from "react";
+/* eslint-disable react-refresh/only-export-components */
+import { createContext, ReactNode, useState } from "react";
 
-const AuthContext = createContext({});
+export const AuthContext = createContext({});
 
 const AuthProvider = ({ children }: { children: ReactNode }) => {
-  const value = {};
+  const [user, setUser] = useState(null);
+
+  const value = { user, setUser };
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
 
