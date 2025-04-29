@@ -2,10 +2,12 @@ import { FormEvent, useState } from "react";
 import { FaGoogle } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Loader from "../components/ui/Loader";
+import { toast } from "sonner";
 
 const Login = () => {
   const [loading, setLoading] = useState(false);
 
+  //* email password login
   const handleLogin = (e: FormEvent<HTMLFormElement>) => {
     setLoading(true);
     e.preventDefault();
@@ -14,13 +16,22 @@ const Login = () => {
     const email = form.email.value;
     const password = form.password.value;
 
+    if (!email || !password) {
+      toast.error("Input Field Required!");
+      setLoading(false);
+      return;
+    }
+
     console.log("Email:", email);
     console.log("Password:", password);
     setLoading(false);
+    toast.success("Login Success.");
   };
 
+  //* google login
   const handleGoogleLogin = () => {
     console.log("Google Login");
+    toast.success("Google login Success.");
   };
 
   return (
