@@ -17,7 +17,8 @@ const Home = () => {
       price: totalAmount,
       transitionId: "",
       date: new Date(),
-      productIds: data?.map((item) => item.products.map((e) => e.id)),
+      discount: totalDiscountedAmount,
+      productIds: data?.flatMap((item) => item.products.map((e) => e.id)),
       status: "pending",
     };
     console.log(payment);
