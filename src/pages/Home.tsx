@@ -28,10 +28,9 @@ const Home = () => {
 
     try {
       const res = await axios.post(
-        "http://localhost:3000/create-ssl-payment",
+        `${import.meta.env.VITE_BACKEND_URL}/create-ssl-payment`,
         payment
       );
-      console.log(res);
 
       if (res?.data?.gatewayUrl) {
         setLoader(false);
