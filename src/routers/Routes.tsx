@@ -11,6 +11,22 @@ export const routes = createBrowserRouter([
         path: "",
         element: <Home />,
       },
+      {
+        path: "success",
+        element: "success hoice",
+      },
+      {
+        path: "fail",
+        element: "fail hoice",
+      },
+      {
+        path: "cancel",
+        element: "cancel korco",
+      },
+      {
+        path: "ipn-success-payment",
+        element: "ipn-success-payment hoice",
+      },
     ],
   },
 ]);
