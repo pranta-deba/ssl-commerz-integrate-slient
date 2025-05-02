@@ -28,6 +28,10 @@ const Home = () => {
         payment
       );
       console.log(res);
+
+      if (res?.data?.gatewayUrl) {
+        window.location.replace(res?.data?.gatewayUrl);
+      }
     } catch (error) {
       console.log(error);
     }
