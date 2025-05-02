@@ -2,6 +2,8 @@ import { createBrowserRouter } from "react-router-dom";
 import Root from "../layouts/Root";
 import Home from "../pages/Home";
 import Success from "../pages/Success";
+import Fail from "../pages/Fail";
+import Cancel from "../pages/Cancel";
 
 export const routes = createBrowserRouter([
   {
@@ -18,11 +20,11 @@ export const routes = createBrowserRouter([
       },
       {
         path: "fail",
-        element: "fail hoice",
+        element: <Fail />,
       },
       {
         path: "cancel",
-        element: "cancel korco",
+        element: <Cancel />,
       },
       {
         path: "ipn-success-payment",
