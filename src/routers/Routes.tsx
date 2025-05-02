@@ -26,10 +26,6 @@ export const routes = createBrowserRouter([
         path: "cancel",
         element: <Cancel />,
       },
-      {
-        path: "ipn-success-payment",
-        element: "ipn-success-payment hoice",
-      },
     ],
   },
 ]);
