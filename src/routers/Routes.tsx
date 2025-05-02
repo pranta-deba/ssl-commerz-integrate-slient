@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Root from "../layouts/Root";
 import Home from "../pages/Home";
+import Success from "../pages/Success";
 
 export const routes = createBrowserRouter([
   {
@@ -13,7 +14,7 @@ export const routes = createBrowserRouter([
       },
       {
         path: "success",
-        element: "success hoice",
+        element: <Success />,
       },
       {
         path: "fail",
