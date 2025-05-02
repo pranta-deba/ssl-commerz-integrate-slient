@@ -1,5 +1,6 @@
 import { user } from "../constants/user.data";
 import useGetCarts from "../hooks/useGetCarts";
+import axios from "axios";
 
 const Home = () => {
   const { data, loading, error, totalAmount, totalDiscountedAmount } =
@@ -8,8 +9,7 @@ const Home = () => {
   const localUser = user;
   console.log(localUser);
 
-  const handlePlaceOrder = () => {
-    // TODO: Add your order placement logic here
+  const handlePlaceOrder = async () => {
     console.log("Order placed successfully!");
 
     const payment = {
@@ -21,6 +21,17 @@ const Home = () => {
       productIds: data?.flatMap((item) => item.products.map((e) => e.id)),
       status: "pending",
     };
+
+    try {
+      const res = await axios.post(
+        "http://localhost:3000/create-ssl-payment",
+        payment
+      );
+      console.log(res);
+    } catch (error) {
+      console.log(error);
+    }
+
     console.log(payment);
   };
 
