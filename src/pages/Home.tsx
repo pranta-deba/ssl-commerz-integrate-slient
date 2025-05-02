@@ -10,7 +10,11 @@ const Home = () => {
   };
 
   if (loading) {
-    return <div className="text-center text-lg mt-10">Loading carts...</div>;
+    return (
+      <div className="w-full h-full flex justify-center items-center">
+        <div className="text-center text-lg mt-10">Loading carts...</div>
+      </div>
+    );
   }
 
   if (error) {

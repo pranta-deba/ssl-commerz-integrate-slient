@@ -1,5 +1,5 @@
 import { BsCart4 } from "react-icons/bs";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const cartItems = 3;
@@ -13,14 +13,14 @@ const Navbar = () => {
       <div className="flex-none">
         <ul className="menu-horizontal px-1 gap-3">
           <li>
-            <NavLink to={"/cart"} className="relative ">
+            <button className="relative ">
               <BsCart4 size={25} />
               {cartItems > 0 && (
                 <span className="w-3 h-3 absolute flex justify-center items-center text-[8px] p-1 rounded-full bg-white border-[1px] border-red-700 -top-[5px] right-[5.3px] text-black">
                   {cartItems}
                 </span>
               )}
-            </NavLink>
+            </button>
           </li>
         </ul>
       </div>
