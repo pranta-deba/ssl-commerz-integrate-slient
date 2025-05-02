@@ -6,11 +6,21 @@ const Home = () => {
     useGetCarts();
 
   const localUser = user;
-  console.log(localUser)
+  console.log(localUser);
 
   const handlePlaceOrder = () => {
     // TODO: Add your order placement logic here
     console.log("Order placed successfully!");
+
+    const payment = {
+      email: user.email,
+      price: totalAmount,
+      transitionId: "",
+      date: new Date(),
+      productIds: data?.map((item) => item.products.map((e) => e.id)),
+      status: "pending",
+    };
+    console.log(payment);
   };
 
   if (loading) {
