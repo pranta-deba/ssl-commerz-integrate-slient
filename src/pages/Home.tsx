@@ -1,8 +1,12 @@
+import { user } from "../constants/user.data";
 import useGetCarts from "../hooks/useGetCarts";
 
 const Home = () => {
   const { data, loading, error, totalAmount, totalDiscountedAmount } =
     useGetCarts();
+
+  const localUser = user;
+  console.log(localUser)
 
   const handlePlaceOrder = () => {
     // TODO: Add your order placement logic here
