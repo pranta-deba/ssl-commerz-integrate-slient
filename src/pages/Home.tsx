@@ -35,8 +35,6 @@ const Home = () => {
     } catch (error) {
       console.log(error);
     }
-
-    console.log(payment);
   };
 
   if (loading) {

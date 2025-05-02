@@ -41,8 +41,19 @@ const useGetCarts = (): UseGetCartsResult => {
     const fetchCarts = async () => {
       setLoading(true);
       try {
+        // Step 1: Get total carts
+        const totalResponse = await axios.get<{ total: number }>(
+          "https://dummyjson.com/carts"
+        );
+        const totalCarts = totalResponse.data.total;
+
+        // Step 2: Calculate a random skip value
+        const maxSkip = Math.max(0, totalCarts - 3); // avoid out-of-bounds
+        const skip = Math.floor(Math.random() * (maxSkip + 1));
+
+        // Step 3: Fetch 3 carts using random skip
         const response = await axios.get<{ carts: Cart[] }>(
-          "https://dummyjson.com/carts?limit=3"
+          `https://dummyjson.com/carts?limit=3&skip=${skip}`
         );
 
         const carts = response.data.carts;
